@@ -10,8 +10,8 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#productos">productos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contacto">contacto</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.html">ingresar</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="carrito.html"><i class="fas fa-shopping-basket"></i></a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.php">ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="carrito.php"><i class="fas fa-shopping-basket"></i></a></li>
                     </ul>
                 </div>
             </div>
