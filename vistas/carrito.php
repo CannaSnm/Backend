@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
      <!-- head -->
-     <?php include('head.php')  ?>
+     <?php include('vistas/head.php')  ?>
     <!-- cierre head -->
     <body id="page-top">
        <!-- Navigation-->
-       <?php include('navbar.php') ?>
+       <?php include('vistas/navbar.php') ?>
         <!-- cierre nav--> 
         <!-- Carrito-->
         <section class="carrito-section" id="carrito">
