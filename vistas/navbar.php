@@ -15,4 +15,5 @@
                     </ul>
                 </div>
             </div>
+            <input type="hidden" id="user_dni" name="user_dni" value="68828306"> 
         </nav>

@@ -5,19 +5,11 @@ ini_set('display_errors', 1);
 
 $data = $_POST;
 
+require("conexion-bd.php");
 
 
-$enlace = mysqli_connect("localhost", "root", "", "curso_backend");
 
-if (!$enlace) {
-    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
-    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-
-  $sql = "SELECT * FROM usuario WHERE DNI= '".$data["DNI"]."'";
+  $sql = "SELECT * FROM usuarios WHERE DNI= '".$data["DNI"]."'";
 
 
   $result = mysqli_query($enlace, $sql);
@@ -25,12 +17,16 @@ if (!$enlace) {
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($usuario = mysqli_fetch_assoc($result)) {
-      echo "DNI: " . $usuario["DNI"]. " - Nombre: " . $usuario["nombre"]. " " . $usuario["apellido"]. "<br>";
-      $hash = $usuario['password'];
+      echo "DNI: " . $usuario["DNI"]. " - Nombre: " . $usuario["Nombre"]. " " . $usuario["Apellido"]. "<br>";
+      $hash = $usuario['Password'];
 
 
           if (password_verify($data['password'], $hash)) {
-            echo '¡La contraseña es válida!';
+
+            $_SESSION["usuarioLogueado"]=$usuario;
+            
+           header("location: ../vistas/tienda.php");
+           exit;
         } else {
             echo 'La contraseña no es válida.';
         }
@@ -48,7 +44,6 @@ if (!$enlace) {
 
  
  
-
 
 ?>
 

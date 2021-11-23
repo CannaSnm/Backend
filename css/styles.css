@@ -552,7 +552,9 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-
+.imagen-producto{
+  width: 100%;
+}
 @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;

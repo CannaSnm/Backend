@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
      <!-- head -->
-     <?php include('vistas/head.php')  ?>
+     <?php include('../controladores/funciones.php');  ?>
+     <?php include('head.php');  ?>
+      <?php $carrito = traer_carrito();
+        // var_dump($carrito); exit;
+       ?> 
+
     <!-- cierre head -->
     <body id="page-top">
        <!-- Navigation-->
-       <?php include('vistas/navbar.php') ?>
+       <?php include('navbar.php'); ?>
         <!-- cierre nav--> 
         <!-- Carrito-->
         <section class="carrito-section" id="carrito">
@@ -14,6 +19,7 @@
                   <h3 class="mb-4"><i class="fas fa-shopping-basket fa-lg pr-3"></i>carrito de compras</h3>
                 </div>
                 <div class="row">
+
                   <div class="container">
                     <table class="table">
                       <thead>
@@ -25,26 +31,20 @@
                           <th class="col-2 text-center">subtotal</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td class="align-middle"><img src="img/ensalada.png" /></td>
-                          <td class="align-middle text-left">Ensalada</td>
+                      <tbody> 
+                        <?php foreach($carrito as $producto): ?> 
+                        <tr>                       
+                          <td class="align-middle"> <img alt="<?php echo $producto['Titul'] ?>"  src=<?php echo $producto['URL_imagen'] ?>> </td>
+                          <td class="align-middle text-left"><?php echo $producto['Titul'] ?><?php echo $producto['Cantidad_producto'] ?></td>
                           <td class="align-middle text-center">
-                            <input type="number" class="form-control" placeholder="01" id="cantidad">
+                            <input type="number" class="form-control input-cantidad" data-id-producto="<?php echo $producto['Id_producto'] ?>" data-id-carrito="<?php echo $producto['Id_carrito'] ?>" min="0" placeholder="00" value= "<?php echo $producto['Cantidad_producto']?>">
                           </td>
-                          <td class="align-middle text-center">$300</td>
-                          <td class="align-middle text-center">$300</td>
-                        </tr>
-                        <tr>
-                          <td class="align-middle"><img src="img/pizza.png" /></td>
-                          <td class="align-middle text-left">Pizza</td>
-                          <td class="align-middle text-center">
-                            <input type="number" class="form-control" placeholder="01" id="cantidad">
-                          </td>
-                          <td class="align-middle text-center">$500</td>
-                          <td class="align-middle text-center">$800</td>
-                        </tr>
-                      </tbody>
+                        
+                          <td class="align-middle text-center">$ <?php echo $producto['Precio'] ?></td>
+                          <td class="align-middle text-center">$ <?php echo $producto['Cantidad_producto'] * $producto['Precio'] ?></td>
+                        </tr>  
+                        <?php endforeach; ?>
+                        </tbody>
                     </table>
 
 
@@ -65,6 +65,6 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="../js/scripts.js"></script>
     </body>
 </html>

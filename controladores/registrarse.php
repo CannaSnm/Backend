@@ -17,16 +17,9 @@ if($data['password'] != $data['password2']){
 unset ($data['password2']);
 $data['habilitado'] = true;
 
-$enlace = mysqli_connect("localhost", "root", "", "curso_backend");
+require("conexion-bd.php");
 
-if (!$enlace) {
-    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
-    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-
-$sql = "INSERT INTO usuario (DNI, nombre, apellido, email, telefono, nro_calle, ciudad, password, habilitado)
+$sql = "INSERT INTO usuarios (DNI, Apellido, Nombre, Mail, Telefono, Calle, Ciudad, Password, Habilitado)
 VALUES ('".$data['DNI']."', '".$data['nombre']."', '".$data['apellido']."',  '".$data['email']."',  '".$data['telefono']."',  '".$data['nro_calle']."',  '".$data['ciudad']."',  '".$data['password']."',  '".$data['habilitado']."' )";
 
 if (mysqli_query($enlace, $sql)) {

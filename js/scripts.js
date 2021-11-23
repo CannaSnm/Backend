@@ -54,3 +54,34 @@
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
+
+        $('.btn-agregar').click(function(){
+            var id_usuario = $("#user_dni").val();                
+            var id_producto = $(this).attr("data-id-producto");
+            console.log(id_producto, id_usuario);
+            $.post("../controladores/agregar_carrito.php", {Id_producto: id_producto, id_usuario: id_usuario}, function(){
+       
+            });
+        });
+
+
+        $('.input-cantidad').on( "change", function(){
+            //obtengo datos
+    
+            var id_producto = $(this).attr("data-id-producto");
+            var id_carrito = $(this).attr("data-id-carrito");
+            var Cantidad_producto = $(this).val();
+            if(
+                Cantidad_producto <= 0){
+                    $.post("../controladores/delete_producto_carrito.php", {id_producto: id_producto, id_carrito: id_carrito}, function(){
+                        location.reload();
+                    }
+                    )
+                }
+                else{
+            $.post("../controladores/actualizar_carrito.php",{id_producto: id_producto, id_carrito: id_carrito, Cantidad_producto: Cantidad_producto},function(result){
+                location.reload();
+            });
+        }
+        })
+
