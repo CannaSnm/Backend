@@ -5,13 +5,13 @@
     <!-- cierre head -->
     <body id="page-top">
         
-        <!-- Navigation
+        <!-- Navigation-->
         <nav>
-        <?php include('navbar.php') ?>
+        <?php include('navbar_nologueado.php') ?>
         </nav>
-          Masthead-->
-        <header class="masthead-login">
-            <div class="container d-flex h-100 align-items-center">
+         <!-- Masthead-->
+        <header class="masthead-login mt-5 ">
+            <div class="container d-flex h-100 align-items-center pt-5">
               <div class="col-4">
                 <div class="text-left">
                       <h1 class="my-0 txt-black mb-4">Registro</h1>   

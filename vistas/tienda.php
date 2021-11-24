@@ -13,7 +13,13 @@
     <!-- cierre head -->
     <body id="page-top">
         <!-- Navigation-->
-        <?php include('navbar.php') ?>
+        <?php 
+          if ($_SESSION['usuarioLogueado'] != "") {
+             include('navbar_logueado.php'); 
+          }
+          else {
+            include('navbar_nologueado.php');
+          }?>
         <!-- cierre nav--> 
         <!-- Masthead-->
         

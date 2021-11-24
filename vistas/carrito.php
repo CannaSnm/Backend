@@ -4,13 +4,19 @@
      <?php include('../controladores/funciones.php');  ?>
      <?php include('head.php');  ?>
       <?php $carrito = traer_carrito();
-        // var_dump($carrito); exit;
+         
        ?> 
 
     <!-- cierre head -->
     <body id="page-top">
        <!-- Navigation-->
-       <?php include('navbar.php'); ?>
+       <?php 
+          if ($_SESSION['usuarioLogueado'] != "") {
+             include('navbar_logueado.php'); 
+          }
+          else {
+            include('navbar_nologueado.php');
+          }?>
         <!-- cierre nav--> 
         <!-- Carrito-->
         <section class="carrito-section" id="carrito">

@@ -22,8 +22,9 @@ require("conexion-bd.php");
 
 
           if (password_verify($data['password'], $hash)) {
-
+            session_start();
             $_SESSION["usuarioLogueado"]=$usuario;
+            
             
            header("location: ../vistas/tienda.php");
            exit;

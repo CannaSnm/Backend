@@ -7,7 +7,13 @@
         
         <!-- Navigation-->
         <nav>
-        <?php include('navbar.php') ?>
+        <?php
+          if ($_SESSION['usuarioLogueado'] != "") {
+             include('navbar_logueado.php'); 
+          }
+          else {
+            include('navbar_nologueado.php');
+          }?>
         </nav>
          <!-- Masthead-->
         <header class="masthead-login">

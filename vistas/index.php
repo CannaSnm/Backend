@@ -1,19 +1,23 @@
-<!-- <?php 
-//  include('../controladores/funciones.php');
-//  $productos = traer_productos();
 
-?> -->
 
 
 
 <!DOCTYPE html>
 <html lang="en">
+  
   <!-- head -->
     <?php include('head.php')  ?>
     <!-- cierre head -->
     <body id="page-top">
         <!-- Navigation-->
-        <?php include('navbar.php') ?>
+        <?php 
+          if ($_SESSION['usuarioLogueado'] != "") {
+             include('navbar_logueado.php'); 
+          }
+          else {
+            include('navbar_nologueado.php');
+          }?>
+        
         <!-- cierre nav--> 
         <!-- Masthead-->
         <header class="masthead">
